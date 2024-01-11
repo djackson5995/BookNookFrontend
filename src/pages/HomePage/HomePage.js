@@ -16,7 +16,7 @@ const HomePage = () => {
 
   const fetchFavorites = async () => {
     try {
-      let response = await axios.get("https://localhost:5001/api/cars/myCars", {
+      let response = await axios.get("https://localhost:5001/api/Favorites", {
         headers: {
           Authorization: "Bearer " + token,
         },
@@ -31,6 +31,7 @@ const HomePage = () => {
     <div className="container">
       {console.log(user)}
       <h1>Home Page for {user.userName}!</h1>
+
       {favorites &&
         favorites.map((favorite) => <p key={favorite.id}>{favorite.title}</p>)}
     </div>
