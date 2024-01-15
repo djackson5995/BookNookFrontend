@@ -14,12 +14,6 @@ const ResultsList = ({ results }) => {
             <Link to={`/book/${book.id}`}>
               <h3>{book.volumeInfo.title}</h3>
             </Link>
-            {book.volumeInfo.authors && (
-              <p>Authors: {book.volumeInfo.authors.join(", ")}</p>
-            )}
-            {book.volumeInfo.publishedDate && (
-              <p>Published Date: {book.volumeInfo.publishedDate}</p>
-            )}
           </li>
         ))}
       </ul>
