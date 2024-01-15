@@ -1,7 +1,10 @@
+import "./Results.css";
+
 const ResultsList = ({ results }) => {
   console.log(results);
+
   return (
-    <div>
+    <div className="results-container">
       <h2>Search Results</h2>
       <ul>
         {results.map((book) => (
