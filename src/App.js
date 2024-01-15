@@ -7,6 +7,7 @@ import "./App.css";
 import LoginPage from "./pages/LoginPage/LoginPage";
 import RegisterPage from "./pages/RegisterPage/RegisterPage";
 import SearchPage from "./pages/SearchPage/SearchPage";
+import BookDetails from "./pages/BookPage/Bookdetails";
 
 // Component Imports
 import Navbar from "./components/NavBar/NavBar";
@@ -25,6 +26,15 @@ function App() {
           element={
             <PrivateRoute>
               <SearchPage />
+            </PrivateRoute>
+          }
+        />
+
+        <Route
+          path="/book/"
+          element={
+            <PrivateRoute>
+              <BookDetails />
             </PrivateRoute>
           }
         />

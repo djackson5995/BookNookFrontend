@@ -1,3 +1,5 @@
+import React from "react";
+import { Link } from "react-router-dom";
 import "./Results.css";
 
 const ResultsList = ({ results }) => {
@@ -9,7 +11,9 @@ const ResultsList = ({ results }) => {
       <ul>
         {results.map((book) => (
           <li key={book.id}>
-            <h3>{book.volumeInfo.title}</h3>
+            <Link to={`/book/${book.id}`}>
+              <h3>{book.volumeInfo.title}</h3>
+            </Link>
             {book.volumeInfo.authors && (
               <p>Authors: {book.volumeInfo.authors.join(", ")}</p>
             )}

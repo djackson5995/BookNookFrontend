@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import ResultsList from "../../components/ResultsList";
 import SearchBar from "../../components/SearchBar/SearchBar";
+
 const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
