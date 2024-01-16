@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 import ResultsList from "../../components/ResultsList";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import "./SearchPage.css";
 
 const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
+  const navigate = useNavigate();
 
   const handleSearch = async (e) => {
     e.preventDefault();
@@ -28,8 +31,15 @@ const SearchPage = () => {
         setSearchTerm={setSearchTerm}
         handleSearch={handleSearch}
       />
+      <div>
+        <Link to="/home">
+          <button>Home</button>
+        </Link>
+      </div>
+
       <ResultsList results={searchResults} />
     </div>
   );
 };
+
 export default SearchPage;

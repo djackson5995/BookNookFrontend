@@ -1,0 +1,27 @@
+
+.book-details-container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.authors,
+.published-date,
+.description {
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.thumbnail {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 20px;
+}
