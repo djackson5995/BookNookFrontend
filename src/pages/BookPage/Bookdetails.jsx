@@ -10,7 +10,7 @@ const BookDetailPage = () => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [token] = useAuth();
+  const [user, token] = useAuth();
 
   useEffect(() => {
     fetchBookDetails();
