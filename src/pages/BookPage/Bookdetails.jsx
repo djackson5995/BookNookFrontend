@@ -3,7 +3,7 @@ import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useParams, Link } from "react-router-dom";
 import BookDetails from "../../components/Book/Bookdetails";
-import ReviewForm from "../../components/ReviewForm/ReviewList";
+import ReviewForm from "../../components/ReviewList/ReviewList";
 
 const BookDetailPage = () => {
   const { id: volumeId } = useParams();
