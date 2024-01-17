@@ -20,6 +20,7 @@ function App() {
   return (
     <div>
       <Navbar />
+
       <Routes>
         <Route
           path="/"
