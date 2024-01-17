@@ -8,14 +8,14 @@ const ReviewForm = ({ bookId, token }) => {
   const handleReviewSubmit = async () => {
     try {
       await axios.post(
-        "https://localhost:5001/api/Reviews", // Update the API endpoint
+        "https://localhost:5001/api/Reviews",
         {
           bookId,
           content: reviewContent,
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: "Bearer " + token,
           },
         }
       );

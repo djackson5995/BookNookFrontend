@@ -41,7 +41,7 @@ const BookDetailPage = () => {
         { bookId: volumeId },
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: "Bearer " + token,
           },
         }
       );
