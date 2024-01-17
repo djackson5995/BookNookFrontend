@@ -6,6 +6,7 @@ const ReviewForm = ({ bookId, token }) => {
   const [error, setError] = useState(null);
 
   const handleReviewSubmit = async () => {
+    console.log(reviewContent);
     try {
       await axios.post(
         "https://localhost:5001/api/Reviews",

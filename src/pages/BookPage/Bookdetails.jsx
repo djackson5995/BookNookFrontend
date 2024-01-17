@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import useAuth from "../../hooks/useAuth";
 import { useParams, Link } from "react-router-dom";
+import BookDetails from "../../components/Book/Bookdetails";
 import ReviewForm from "../../components/ReviewForm/ReviewList";
 
 const BookDetailPage = () => {
@@ -63,16 +64,15 @@ const BookDetailPage = () => {
   return (
     <div>
       <Link to="/home">Go to Home Page</Link>
-      <h2>{bookDetails.title}</h2>
-      <p>Authors: {bookDetails.authors.join(", ")}</p>
-      <p>Published Date: {bookDetails.publishedDate}</p>
-      <img src={bookDetails.imageLinks.thumbnail} alt="Book Thumbnail" />
-      <p>Description: {bookDetails.description}</p>
-
-      <button onClick={handleFavoriteClick} disabled={isFavorite}>
-        {isFavorite ? "Favorited" : "Favorite"}
-      </button>
-
+      <BookDetails
+        title={bookDetails.title}
+        authors={bookDetails.authors}
+        publishedDate={bookDetails.publishedDate}
+        thumbnail={bookDetails.imageLinks.thumbnail}
+        description={bookDetails.description}
+        handleFavoriteClick={handleFavoriteClick}
+        isFavorite={isFavorite}
+      />
       <ReviewForm bookId={volumeId} token={token} />
     </div>
   );

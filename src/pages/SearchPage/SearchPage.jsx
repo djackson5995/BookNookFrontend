@@ -3,7 +3,6 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import ResultsList from "../../components/ResultsList";
 import SearchBar from "../../components/SearchBar/SearchBar";
-import "./SearchPage.css";
 
 const SearchPage = () => {
   const [searchTerm, setSearchTerm] = useState("");

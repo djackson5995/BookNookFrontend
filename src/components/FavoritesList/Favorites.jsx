@@ -12,6 +12,7 @@ const FavoritesList = ({ token }) => {
   }, [token]);
 
   const fetchFavorites = async () => {
+    console.log(token);
     try {
       setLoading(true);
       setError(null);

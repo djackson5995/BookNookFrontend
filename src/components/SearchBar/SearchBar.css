@@ -26,7 +26,7 @@
   }
   
   /* Button styles */
-  button {
+  button .searchBar{
     background-color: #007bff;
     color: #fff;
     padding: 10px 15px;
@@ -34,6 +34,7 @@
     cursor: pointer;
     border-radius: 0 4px 4px 0;
   }
+  
   
   /* Hover effect on button */
   button:hover {
