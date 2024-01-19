@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./Bookdetails.css";
 const BookDetails = ({
   title,
   authors,
@@ -10,16 +10,19 @@ const BookDetails = ({
   isFavorite,
 }) => {
   return (
-    <div>
-      <h2>{title}</h2>
-      <p>Authors: {authors.join(", ")}</p>
-      <p>Published Date: {publishedDate}</p>
-      <img src={thumbnail} alt="Book Thumbnail" />
-      <p>Description: {description}</p>
-
-      <button onClick={handleFavoriteClick} disabled={isFavorite}>
-        {isFavorite ? "Favorited" : "Favorite"}
-      </button>
+    <div className="book-details-container">
+      <div className="book-details">
+        <div className="d-flex w-100 justify-content-between">
+          <h2>{title}</h2>
+          <small className="text-muted">Published Date: {publishedDate}</small>
+        </div>
+        <p>Authors: {authors.join(", ")}</p>
+        <img src={thumbnail} alt="Book Thumbnail" />
+        <p>Description: {description}</p>
+        <button onClick={handleFavoriteClick} disabled={isFavorite}>
+          {isFavorite ? "Favorited" : "Favorite"}
+        </button>
+      </div>
     </div>
   );
 };

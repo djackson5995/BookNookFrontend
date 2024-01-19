@@ -8,15 +8,29 @@ const ResultsList = ({ results }) => {
   return (
     <div className="results-container">
       <h2>Search Results</h2>
-      <ul>
+      <div className="list-group">
         {results.map((book) => (
-          <li key={book.id}>
-            <Link to={`/book/${book.id}`}>
-              <h3>{book.volumeInfo.title}</h3>
-            </Link>
-          </li>
+          <Link
+            to={`/book/${book.id}`}
+            className="list-group-item list-group-item-action"
+            key={book.id}
+          >
+            <div className="d-flex w-100 justify-content-between">
+              <h5 className="mb-1">{book.volumeInfo.title}</h5>
+              <small className="text-muted">
+                {book.volumeInfo.publishedDate}
+              </small>
+            </div>
+            <p className="mb-1">{book.volumeInfo.description}</p>
+            <small className="text-muted">
+              Authors:{" "}
+              {book.volumeInfo.authors
+                ? book.volumeInfo.authors.join(", ")
+                : "Unknown"}
+            </small>
+          </Link>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

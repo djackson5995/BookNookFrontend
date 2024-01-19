@@ -6,7 +6,7 @@ import BookDetails from "../../components/Book/Bookdetails";
 import ReviewForm from "../../components/ReviewList/ReviewList";
 
 const BookDetailPage = () => {
-  const { id: volumeId } = useParams();
+  const { id: BookId } = useParams();
   const [bookDetails, setBookDetails] = useState(null);
   const [isFavorite, setIsFavorite] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -15,7 +15,7 @@ const BookDetailPage = () => {
 
   useEffect(() => {
     fetchBookDetails();
-  }, [volumeId, token]);
+  }, [BookId, token]);
 
   const fetchBookDetails = async () => {
     try {
@@ -23,7 +23,7 @@ const BookDetailPage = () => {
       setError(null);
 
       const response = await axios.get(
-        `https://www.googleapis.com/books/v1/volumes/${volumeId}`
+        `https://www.googleapis.com/books/v1/volumes/${BookId}`
       );
 
       setBookDetails(response.data.volumeInfo);
@@ -39,7 +39,7 @@ const BookDetailPage = () => {
     try {
       await axios.post(
         "https://localhost:5001/api/Favorites",
-        { title: volumeId },
+        { title: BookId },
         {
           headers: {
             Authorization: "Bearer " + token,
@@ -62,8 +62,10 @@ const BookDetailPage = () => {
   }
 
   return (
-    <div>
-      <Link to="/home">Go to Home Page</Link>
+    <div className="book-detail-page-container">
+      <Link to="/home" className="back-to-home-link">
+        Go to Home Page
+      </Link>
       <BookDetails
         title={bookDetails.title}
         authors={bookDetails.authors}
@@ -73,7 +75,7 @@ const BookDetailPage = () => {
         handleFavoriteClick={handleFavoriteClick}
         isFavorite={isFavorite}
       />
-      <ReviewForm bookId={volumeId} token={token} />
+      <ReviewForm bookId={BookId} token={token} />
     </div>
   );
 };

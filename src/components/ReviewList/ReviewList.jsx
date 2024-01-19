@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import "./ReviewList.css";
 const ReviewForm = ({ bookId, token }) => {
   const [reviewContent, setReviewContent] = useState("");
   const [error, setError] = useState(null);
 
   const handleReviewSubmit = async () => {
-    console.log(reviewContent);
     try {
       await axios.post(
         "https://localhost:5001/api/Reviews",
@@ -30,18 +29,38 @@ const ReviewForm = ({ bookId, token }) => {
   };
 
   return (
-    <div>
-      <h3>Write a Review:</h3>
-      <textarea
-        value={reviewContent}
-        onChange={(e) => setReviewContent(e.target.value)}
-        placeholder="Write your review here..."
-        rows="4"
-        cols="50"
-      ></textarea>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <button onClick={handleReviewSubmit}>Submit Review</button>
-    </div>
+    <form className="row row-cols-lg-auto g-3 align-items-center">
+      <div className="col-12">
+        <label className="visually-hidden" htmlFor="reviewContent">
+          Review Content
+        </label>
+        <textarea
+          className="form-control"
+          id="reviewContent"
+          placeholder="Write your review here..."
+          value={reviewContent}
+          onChange={(e) => setReviewContent(e.target.value)}
+          rows="4"
+          cols="50"
+        ></textarea>
+      </div>
+
+      {error && (
+        <div className="col-12">
+          <p style={{ color: "red" }}>{error}</p>
+        </div>
+      )}
+
+      <div className="col-12">
+        <button
+          type="button"
+          className="btn btn-primary"
+          onClick={handleReviewSubmit}
+        >
+          Submit Review
+        </button>
+      </div>
+    </form>
   );
 };
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import "./Favorites.css";
 
 const FavoritesList = ({ token }) => {
   const [favorites, setFavorites] = useState([]);
@@ -17,7 +16,7 @@ const FavoritesList = ({ token }) => {
       setLoading(true);
       setError(null);
 
-      const response = await axios.get(
+      const response = await axios.post(
         "https://localhost:5001/api/Favorites/myFavorites",
         {
           headers: {
