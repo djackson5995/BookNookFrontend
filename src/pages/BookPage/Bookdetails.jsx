@@ -39,7 +39,7 @@ const BookDetailPage = () => {
     try {
       await axios.post(
         "https://localhost:5001/api/Favorites",
-        { bookId: volumeId },
+        { title: volumeId },
         {
           headers: {
             Authorization: "Bearer " + token,

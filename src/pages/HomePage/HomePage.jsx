@@ -8,9 +8,17 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      <h2>Welcome to your Home Page {user.userName}!</h2>
-      <h4>Please navigate to the search page link to begin your search!</h4>
-      <Link to="/">Go to Search Page</Link>
+      <div className="welcome-container">
+        <h2 className="welcome-message">
+          Welcome to your Home Page, {user.userName}!
+        </h2>
+        <p className="instruction">
+          Please navigate to the search page link to begin your search.
+        </p>
+        <Link to="/" className="search-link">
+          Go to Search Page
+        </Link>
+      </div>
 
       <FavoritesList token={token} />
     </div>
