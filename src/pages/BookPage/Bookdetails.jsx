@@ -6,7 +6,7 @@ import BookDetails from "../../components/Book/Bookdetails";
 import ReviewForm from "../../components/ReviewList/ReviewList";
 
 const BookDetailPage = () => {
-  const { id: BookId } = useParams();
+  const { id: volumeId } = useParams();
   const [bookDetails, setBookDetails] = useState(null);
   const [isFavorite, setIsFavorite] = useState(false);
   const [loading, setLoading] = useState(true);
@@ -15,7 +15,7 @@ const BookDetailPage = () => {
 
   useEffect(() => {
     fetchBookDetails();
-  }, [BookId, token]);
+  }, [volumeId, token]);
 
   const fetchBookDetails = async () => {
     try {
@@ -23,7 +23,7 @@ const BookDetailPage = () => {
       setError(null);
 
       const response = await axios.get(
-        `https://www.googleapis.com/books/v1/volumes/${BookId}`
+        `https://www.googleapis.com/books/v1/volumes/${volumeId}`
       );
 
       setBookDetails(response.data.volumeInfo);
@@ -39,7 +39,7 @@ const BookDetailPage = () => {
     try {
       await axios.post(
         "https://localhost:5001/api/Favorites",
-        { title: BookId },
+        { title: volumeId },
         {
           headers: {
             Authorization: "Bearer " + token,
@@ -75,7 +75,7 @@ const BookDetailPage = () => {
         handleFavoriteClick={handleFavoriteClick}
         isFavorite={isFavorite}
       />
-      <ReviewForm bookId={BookId} token={token} />
+      <ReviewForm bookId={volumeId} token={token} />
     </div>
   );
 };

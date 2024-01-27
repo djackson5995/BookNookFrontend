@@ -16,7 +16,7 @@ const FavoritesList = ({ token }) => {
       setLoading(true);
       setError(null);
 
-      const response = await axios.post(
+      const response = await axios.get(
         "https://localhost:5001/api/Favorites/myFavorites",
         {
           headers: {
